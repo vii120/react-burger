@@ -1,3 +1,4 @@
 .content{
   margin-top: calc(16px + 56px);
+  overflow-x: hidden;
 }
