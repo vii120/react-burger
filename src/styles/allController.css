@@ -1,0 +1,45 @@
+.allController{
+  width: 500px;
+  background-color: #ddd;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px #7f7f7f;
+  margin: 16px auto;
+  padding: 12px;
+}
+@media (max-width: 576px){
+  .allController{ 
+    width: 100%;
+  }
+}
+
+.order {
+  padding: 8px 24px;
+  margin: 12px auto;
+  background-color: #e27b36;
+  font-family: inherit;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 16px;
+  outline: none;
+  box-shadow: 5px 5px 0 #c15711;
+  cursor: pointer;
+}
+
+.order:hover:not(:disabled){
+  animation: order .3s both ease-out infinite alternate;
+}
+
+.order:disabled {
+  color: white;
+  background-color: #818080;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.6);
+  cursor: not-allowed;
+}
+
+@keyframes order{
+  0%{ transform: translateY(3px) }
+  100%{ transform: translateY(-3px) }
+}
+

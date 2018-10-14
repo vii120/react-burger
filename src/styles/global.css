@@ -1,0 +1,17 @@
+.btn {
+  display: inline-block;
+  padding: 5px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 16px;
+  outline: none;
+  font: inherit;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.4);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.btn:hover:not(:disabled){  
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 8px rgba(0,0,0,.5);
+}

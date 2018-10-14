@@ -1,0 +1,73 @@
+.controller {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.controller button {
+  width: 80px;
+  color: white;
+}
+
+.less {  
+  background-color: #e4412e;
+}
+
+.more {
+  background-color: #00742a;
+}
+
+.controller button:disabled {
+  background-color: #949494;
+  cursor: not-allowed;
+}
+
+.label {
+  width: 80px;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.priceTag {
+  width: 70px;
+  padding: 10px;
+  text-align: left;
+}
+
+.numBox{
+  width: 50px;
+  font-weight: bold;
+}
+
+.btnIcon {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .controller {
+    justify-content: center;
+  }
+  .controller button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .priceTag {
+    width: 60px;
+  }
+  .numBox {
+    width: 25px;
+  }
+  .btnText {
+    display: none;
+  }
+  .btnIcon {
+    display: block;
+  }
+}
