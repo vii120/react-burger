@@ -9,7 +9,8 @@ const Controller = (props) => {
     number,
     addIngrd,
     removeIngrd,
-    disabled
+    minDisabled,
+    maxDisabled
   } = props
   return (
     <div className={classes.controller}>
@@ -17,13 +18,14 @@ const Controller = (props) => {
     <div className={classes.priceTag}>$ {price}</div>
     <button className={[globalClass.btn, classes.less].join(' ')}
       onClick={removeIngrd}
-      disabled={disabled} >
+      disabled={minDisabled} >
       <span className={classes.btnText}>Less</span>
       <span className={classes.btnIcon}><i className="fas fa-minus"></i></span>
     </button>
     <div className={classes.numBox}>{number}</div>
     <button className={[globalClass.btn, classes.more].join(' ')}
-      onClick={addIngrd} >
+      onClick={addIngrd}
+      disabled={maxDisabled} >
       <span className={classes.btnText}>More</span>
       <span className={classes.btnIcon}><i className="fas fa-plus"></i></span>
     </button>

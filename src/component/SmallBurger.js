@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from '../styles/ingredient.css';
+import classes from '../styles/smallBurger.css';
 import PropTypes from 'prop-types';
 
 class Ingredient extends Component {

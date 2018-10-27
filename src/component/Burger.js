@@ -5,11 +5,12 @@ import { Scrollbars } from 'react-custom-scrollbars';
 
 const Burger = (props) => {
   const ingredientList = props.ingredients
-    .map(item => {
-      return [...Array(item.number)]  // count values
+    .map(item =>
+      [...Array(item.number)]  // count values
         .map((blank, index) => <Ingredient type={item.type} key={index} />)
-    })
-  const ingrdLen = props.ingredients.map(item => item.number).reduce((arr, el) => arr + el)
+    )
+  const ingrdLen = props.ingredients.length &&
+    props.ingredients.map(item => item.number).reduce((arr, el) => arr + el)
   return (
     <div className={classes.burger}>
       <Scrollbars>

@@ -47,9 +47,6 @@
 }
 
 @media (max-width: 576px) {
-  .controller {
-    justify-content: center;
-  }
   .controller button {
     width: 36px;
     height: 36px;

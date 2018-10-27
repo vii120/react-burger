@@ -1,0 +1,8 @@
+.checkout {
+  text-align: center;
+  padding: 16px 0;
+}
+.checkout button {
+  width: 100px;
+  color: white;
+}

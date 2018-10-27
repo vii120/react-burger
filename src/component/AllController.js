@@ -21,7 +21,8 @@ const AllController = (props) => {
         number={item.number}
         addIngrd={() => countIngredient(item, 'add')}
         removeIngrd={() => countIngredient(item, 'remove')}
-        disabled={item.number <= 0}
+        minDisabled={item.number <= 0}
+        maxDisabled={item.number >= 3}
       />)}
     <button className={classes.order}
       disabled={!canOrder}

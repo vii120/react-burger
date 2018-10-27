@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from '../styles/toolbar.css';
 import logo from '../assets/images/burger-logo.png';
+import { Link, NavLink } from 'react-router-dom'
 
 const ToolBar = (props) => {
   const {
@@ -13,7 +14,7 @@ const ToolBar = (props) => {
     <header className={classes.toolbar}>
       {/* logo */}
       <div className={classes.logo}>
-        <a href="#" style={{ display: 'block' }}><img src={logo} alt="" /></a>
+        <Link to="/" style={{ display: 'block' }}><img src={logo} alt="" /></Link>
       </div>
       {/* menu */}
       <nav>
@@ -25,9 +26,11 @@ const ToolBar = (props) => {
           </li>
           {linkList.map((item, index) => (
             <li className={classes.menuItem} key={index}>
-              <a href={item.link} className={item.active ? classes.active : null}>
+              <NavLink exact
+                to={item.link}
+                activeClassName={classes.active}>
                 {item.text}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>

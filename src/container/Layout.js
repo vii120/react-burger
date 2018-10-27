@@ -7,13 +7,13 @@ class Layout extends Component {
     showMenu: false,
     linkList: [
       { link: '/', active: true, text: 'Burger Builder' },
-      { link: '/', active: false, text: 'Checkout' },
+      { link: '/orderhistory', active: false, text: 'All orders' },
     ]
   }
 
   toggleMenu = () => {
     const showMenu = !this.state.showMenu
-    this.setState({showMenu})
+    this.setState({ showMenu })
   }
 
   render() {
@@ -28,7 +28,8 @@ class Layout extends Component {
         <main className={classes.content}>
           {this.props.children}
         </main>
-      </React.Fragment>);
+      </React.Fragment>
+    );
   }
 }
 

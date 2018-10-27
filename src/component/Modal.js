@@ -18,7 +18,7 @@ class Modal extends Component {
       modalSwitch,
       ingredients,
       totalPrice,
-      confirmOrder,
+      gotoCheckout,
       modalLoading,
     } = this.props
 
@@ -56,14 +56,12 @@ class Modal extends Component {
           <i className="fas fa-dollar-sign"></i> {totalPrice}
           </div>
           <p>Continue to checkout?</p>
-          <button className={[globalClass.btn, classes.cancel].join(' ')}
+          <button className={[globalClass.btn, globalClass.cancel].join(' ')}
             onClick={modalSwitch} >
             Cancel
           </button>
-          <button className={[globalClass.btn, classes.continue].join(' ')}
-            onClick={modalSwitch} 
-            // onClick={confirmOrder} 
-            >
+          <button className={[globalClass.btn, globalClass.continue].join(' ')}
+            onClick={gotoCheckout} >
             Continue
           </button>
         </div>

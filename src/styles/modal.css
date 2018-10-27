@@ -47,12 +47,8 @@
   color: #b00;
 }
 
-.cancel {  
-  background-color: #e4412e;
-}
-
-.continue {
-  background-color: #00742a;
+.modal h2 {
+  margin: 0;
 }
 
 .modal table {

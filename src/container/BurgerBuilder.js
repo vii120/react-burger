@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Burger from '../component/Burger';
 import AllController from '../component/AllController';
 import Modal from '../component/Modal';
-import axios from '../axios/order'
+// import axios from '../axios/order'
 
 class BurgerBuilder extends Component {
   state = {
     ingredients: [
       { type: 'tomato', number: 0, price: 5 },
-      { type: 'salad', number: 0, price: 3 },
+      { type: 'lettuce', number: 0, price: 3 },
       { type: 'bacon', number: 0, price: 12 },
       { type: 'cheese', number: 0, price: 8 },
       { type: 'onion', number: 0, price: 3 },
@@ -38,33 +38,43 @@ class BurgerBuilder extends Component {
     this.setState({ showModal })
   }
 
-  confirmOrder = () => {
-    this.setState({ modalLoading: true })
-    let insideBurger = {}
-    this.state.ingredients.forEach(item => {
-      if (item.number !== 0) {
-        insideBurger = { ...insideBurger, [item.type]: item.number }
-      }
-    }
-    )
-    const orderDetail = {
-      insideBurger,
-      totalPrice: this.state.totalPrice,
-      customer: {
-        name: 'robin',
-        mail: 'robin.s@gmail.com'
-      },
-      delivery: 'DHL'
-    }
-    axios.post('/orders.json', orderDetail)  // .json: used for firebase
-      .then(response => {
-        this.setState({ modalLoading: false, showModal: false })
-        // console.log(response)
-      })
-      .catch(error => {
-        this.setState({ modalLoading: false, showModal: false })
-        // console.log(error)
-      })
+  gotoCheckout = () => {
+    // this.setState({ modalLoading: true })
+    // let insideBurger = {}
+    // this.state.ingredients.forEach(item => {
+    //   if (item.number !== 0) {
+    //     insideBurger = { ...insideBurger, [item.type]: item.number }
+    //   }
+    // }
+    // )
+    // const orderDetail = {
+    //   insideBurger,
+    //   totalPrice: this.state.totalPrice,
+    //   customer: {
+    //     name: 'robin',
+    //     mail: 'robin.s@gmail.com'
+    //   },
+    //   delivery: 'DHL'
+    // }
+    // axios.post('/orders.json', orderDetail)  // .json: used for firebase
+    //   .then(response => {
+    //     this.setState({ modalLoading: false, showModal: false })
+    //     // console.log(response)
+    //   })
+    //   .catch(error => {
+    //     this.setState({ modalLoading: false, showModal: false })
+    //     // console.log(error)
+    //   })
+    const queryParams = [];
+    this.state.ingredients
+      .filter(item => item.number !== 0)
+      .map(item => queryParams.push(encodeURIComponent(item.type) + '=' + encodeURIComponent(item.number)))
+    queryParams.push(`price=${this.state.totalPrice}`)
+    const queryString = queryParams.join('&')
+    this.props.history.push({
+      pathname: '/checkout',
+      search: `?${queryString}`
+    })
   }
 
   render() {
@@ -80,7 +90,7 @@ class BurgerBuilder extends Component {
         />
         <Modal showModal={this.state.showModal}
           modalSwitch={this.modalSwitch}
-          confirmOrder={this.confirmOrder}
+          gotoCheckout={this.gotoCheckout}
           ingredients={this.state.ingredients}
           totalPrice={this.state.totalPrice}
           modalLoading={this.state.modalLoading} >

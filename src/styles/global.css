@@ -15,3 +15,11 @@
   transform: translate(-2px, -2px);
   box-shadow: 4px 4px 8px rgba(0,0,0,.5);
 }
+
+.cancel {  
+  background-color: #e4412e;
+}
+
+.continue {
+  background-color: #00742a;
+}
