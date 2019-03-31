@@ -18,8 +18,7 @@ function ensureSlash(path, needsSlash) {
   } else if (!hasSlash && needsSlash) {
     return `${path}/`;
   } else {
-    // return path;
-    return `.${path}`;
+    return path;
   }
 }
 
@@ -35,7 +34,7 @@ const getPublicUrl = appPackageJson =>
 function getServedPath(appPackageJson) {
   const publicUrl = getPublicUrl(appPackageJson);
   const servedUrl =
-    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
+    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : './');
   return ensureSlash(servedUrl, true);
 }
 
