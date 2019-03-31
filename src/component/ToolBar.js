@@ -14,7 +14,7 @@ const ToolBar = (props) => {
     <header className={classes.toolbar}>
       {/* logo */}
       <div className={classes.logo}>
-        <Link to="/" style={{ display: 'block' }}><img src={logo} alt="" /></Link>
+        <Link to="./" style={{ display: 'block' }}><img src={logo} alt="" /></Link>
       </div>
       {/* menu */}
       <nav>

@@ -6,8 +6,8 @@ class Layout extends Component {
   state = {
     showMenu: false,
     linkList: [
-      { link: '/', active: true, text: 'Burger Builder' },
-      { link: '/orderhistory', active: false, text: 'All orders' },
+      { link: './', active: true, text: 'Burger Builder' },
+      { link: './orderhistory', active: false, text: 'All orders' },
     ]
   }
 
