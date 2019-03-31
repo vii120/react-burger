@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../axios/order'
 import SmallBurger from '../component/SmallBurger';
-// import classes from '../styles/smallBurger.css';
+import classes from '../styles/orderHistory.css'
 
 class OrderHistory extends Component {
   componentDidMount() {
@@ -19,29 +19,36 @@ class OrderHistory extends Component {
       })
   }
   state = {
+    loading: false,
     orders: [],
-    loading: false
+    sortIngrd: ['tomato', 'lettuce', 'bacon', 'cheese', 'onion', 'meat',]  // sorted ingredient
   }
   render() {
+    const { loading, orders, sortIngrd } = this.state
     return (
-      <div>
-        {/* {this.state.orders.map(order =>
-          <div key={order.id}>
-            {order.customer.name}
-            <SmallBurger type="bread-top" />
-            {
-              Object.keys(order.insideBurger).map(ingrd =>
-                [...Array(order.insideBurger[ingrd])].map((arr, i) =>
-                  <SmallBurger type={ingrd} key={i} />
+      <div className={classes.orderHistory}>
+        {loading && 'loading...'}
+        {orders.reverse().map(order => {
+          const showIngrd = sortIngrd.filter(item => Object.keys(order.insideBurger).includes(item))
+          return (
+            <div key={order.id} className={classes.burgerItem}>
+              <div className={classes.orderName}>{order.customer.name}</div>
+              <SmallBurger type="bread-top" />
+              {
+                showIngrd.map(ingrd =>
+                  [...Array(order.insideBurger[ingrd])].map((arr, i) =>
+                    <SmallBurger type={ingrd} key={i} />
+                  )
                 )
-              )
-            }
-            <SmallBurger type="bread-bottom" />
-          </div>
-        )} */}
-        <SmallBurger type="bread-top" />
+              }
+              <SmallBurger type="bread-bottom" />
+            </div>
+          )
+        }
+        )}
+        {/* <SmallBurger type="bread-top" />
         <span>the page is under construction!</span>
-        <SmallBurger type="bread-bottom" />
+        <SmallBurger type="bread-bottom" /> */}
       </div>
     );
   }

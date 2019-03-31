@@ -49,10 +49,12 @@ class OrderInfo extends Component {
         console.log(response)
         this.setState({ loading: false })
         this.props.history.push('/')
+        window.confirm("We have received your order!")
       })
       .catch(error => {
         console.log(error)
         this.setState({ loading: false })
+        window.confirm("Oops, something went wrong!")
       })
   }
   render() {

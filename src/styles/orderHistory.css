@@ -1,0 +1,18 @@
+.orderHistory {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.burgerItem {
+    margin: 8px 12px;
+}
+.orderName {
+    margin-bottom: 6px;
+    font-size: 12px;
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
