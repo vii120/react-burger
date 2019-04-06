@@ -48,7 +48,7 @@ class OrderInfo extends Component {
       .then(response => {
         console.log(response)
         this.setState({ loading: false })
-        this.props.history.push('./')
+        this.props.history.push('/')
         window.confirm("We have received your order!")
       })
       .catch(error => {
